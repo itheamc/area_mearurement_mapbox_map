@@ -12,7 +12,7 @@ dependency_overrides:
   area_mearurement_mapbox_map:
     git:
       url: https://github.com/itheamc/area_mearurement_mapbox_map.git
-      ref: 97bbc0e
+      ref: 1dac2a7
 
   mapbox_gl_platform_interface:
     git:
