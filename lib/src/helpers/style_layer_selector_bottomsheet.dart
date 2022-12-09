@@ -101,9 +101,13 @@ class _StyleLayerSelectorBottomSheetState
                               .updateMapBaseLayerStyle(baseStyleId: layer.id),
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
-                            side: const BorderSide(
+                            side: BorderSide(
                               width: 1,
-                              color: Colors.transparent,
+                              color: _landMeasurementMapController
+                                          .selectedStyleId ==
+                                      layer.id
+                                  ? Colors.red
+                                  : Colors.transparent,
                             ),
                             borderRadius: BorderRadius.circular(100),
                           ),

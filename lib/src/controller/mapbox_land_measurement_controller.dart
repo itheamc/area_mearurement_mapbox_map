@@ -12,6 +12,11 @@ class MapboxLandMeasurementController extends GetxController {
   /// UserLocation
   UserLocation? userLocation;
 
+  /// Selected Style Id
+  final _selectedStyleId = 0.obs;
+
+  int get selectedStyleId => _selectedStyleId.value;
+
   /// Method to handle onMapCreatedCallback
   void onMapCreated(MapboxMapController controller) {
     _mapController = controller;
@@ -406,6 +411,7 @@ class MapboxLandMeasurementController extends GetxController {
   }
 
   void updateMapBaseLayerStyle({int baseStyleId = 0}) {
+    _selectedStyleId.value = baseStyleId;
     _mapController?.setStyle(getMabBoxStyles(stylesId: baseStyleId));
   }
 
