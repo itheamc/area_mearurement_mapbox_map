@@ -1,4 +1,4 @@
-name: area_mearurement_mapbox_map
+name: area_measurement_mapbox_map
 description: A flutter package to measure the area of the land covered by the polygon drawn on mapbox map.
 version: 0.0.1
 homepage: https://github.com/itheamc/area_mearurement_mapbox_map
