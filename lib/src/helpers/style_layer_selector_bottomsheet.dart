@@ -21,27 +21,27 @@ class _StyleLayerSelectorBottomSheetState
     _MapStyle(
       id: 0,
       name: 'Default',
-      assetsName: 'assets/icon/satellite_layer.jpg',
+      assetsName: 'assets/icons/satellite_layer.jpg',
     ),
     _MapStyle(
       id: 1,
       name: 'Light',
-      assetsName: 'assets/icon/lightlayer.png',
+      assetsName: 'assets/icons/lightlayer.png',
     ),
     _MapStyle(
       id: 2,
       name: 'Dark',
-      assetsName: 'assets/icon/dark_layer.jpg',
+      assetsName: 'assets/icons/dark_layer.jpg',
     ),
     _MapStyle(
       id: 3,
       name: 'Streets',
-      assetsName: 'assets/icon/street_layer.jpg',
+      assetsName: 'assets/icons/street_layer.jpg',
     ),
     _MapStyle(
       id: 4,
       name: 'Imagery',
-      assetsName: 'assets/icon/satellite_street_layer.jpg',
+      assetsName: 'assets/icons/satellite_street_layer.jpg',
     ),
   ];
 

@@ -28,7 +28,7 @@ dependency_overrides:
 
 # Added assets folder
   assets:
-    - assets/icon/
+    - assets/icons/
     
 # Add Fonts
   fonts:

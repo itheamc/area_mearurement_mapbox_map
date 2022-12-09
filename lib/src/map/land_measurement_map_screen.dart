@@ -253,7 +253,7 @@ class LandMeasurementMapScreenState extends State<LandMeasurementMapScreen> {
                     height: 25.0,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/icon/target.png'),
+                        image: AssetImage('assets/icons/target.png'),
                       ),
                     ),
                   ),
