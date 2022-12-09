@@ -54,7 +54,7 @@ class LandMeasurementMapScreen extends StatefulWidget {
 class LandMeasurementMapScreenState extends State<LandMeasurementMapScreen> {
   /// MeasurementMapboxController
   final _measurementMapboxController =
-      Get.find<MapboxLandMeasurementController>();
+      Get.put(MapboxLandMeasurementController());
 
   @override
   void initState() {

@@ -13,17 +13,7 @@ dependencies:
   get: ^4.6.5
   maps_toolkit: ^2.0.1
   font_awesome_flutter: ^10.3.0
-
-dependency_overrides:
-  mapbox_gl_platform_interface:
-    git:
-      url: https://github.com/ithebest/maps.git
-      ref: master
-      path: mapbox_gl_platform_interface/
-  mapbox_gl:
-    git:
-      url: https://github.com/ithebest/maps.git
-      ref: master
+  mapbox_gl: ^0.16.0
 
 dev_dependencies:
   flutter_test:
