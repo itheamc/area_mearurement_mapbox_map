@@ -89,44 +89,46 @@ class _StyleLayerSelectorBottomSheetState
                 ],
               ),
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: _layers
-                  .map(
-                    (layer) => Column(
-                      children: [
-                        FloatingActionButton(
-                          onPressed: () => _landMeasurementMapController
-                              .updateMapBaseLayerStyle(baseStyleId: layer.id),
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              width: 1,
-                              color: _landMeasurementMapController
-                                          .selectedStyleId ==
-                                      layer.id
-                                  ? Colors.red
-                                  : Colors.transparent,
+            Obx(() {
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: _layers
+                    .map(
+                      (layer) => Column(
+                        children: [
+                          FloatingActionButton(
+                            onPressed: () => _landMeasurementMapController
+                                .updateMapBaseLayerStyle(baseStyleId: layer.id),
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                width: 1,
+                                color: _landMeasurementMapController
+                                            .selectedStyleId ==
+                                        layer.id
+                                    ? Colors.red
+                                    : Colors.transparent,
+                              ),
+                              borderRadius: BorderRadius.circular(100),
                             ),
-                            borderRadius: BorderRadius.circular(100),
+                            elevation: 0,
+                            child: Image.asset(layer.assetsName,
+                                fit: BoxFit.cover,
+                                height: (MediaQuery.of(context).size.width) / 6,
+                                width: MediaQuery.of(context).size.width / 6),
                           ),
-                          elevation: 0,
-                          child: Image.asset(layer.assetsName,
-                              fit: BoxFit.cover,
-                              height: (MediaQuery.of(context).size.width) / 6,
-                              width: MediaQuery.of(context).size.width / 6),
-                        ),
-                        Text(
-                          layer.name,
-                          // style: CustomAppStyle.button14pxSemiBold(context)
-                          //     .copyWith(color: Colors.black87),
-                        )
-                      ],
-                    ),
-                  )
-                  .toList(),
-            )
+                          Text(
+                            layer.name,
+                            // style: CustomAppStyle.button14pxSemiBold(context)
+                            //     .copyWith(color: Colors.black87),
+                          )
+                        ],
+                      ),
+                    )
+                    .toList(),
+              );
+            })
           ],
         ),
       ),
