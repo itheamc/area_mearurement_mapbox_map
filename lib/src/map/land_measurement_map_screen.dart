@@ -163,7 +163,7 @@ class LandMeasurementMapScreenState extends State<LandMeasurementMapScreen> {
                 child: FittedBox(
                   child: IconButton(
                     onPressed: () {
-                      Get.bottomSheet(const StyleLayerSelectorBottomSheet());
+                      Scaffold.of(context).showBottomSheet((context) => const StyleLayerSelectorBottomSheet());
                     },
                     icon: const Icon(
                       Icons.layers_outlined,

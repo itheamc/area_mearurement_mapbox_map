@@ -76,8 +76,7 @@ class _StyleLayerSelectorBottomSheetState
                   Text(
                     'Map Type',
                     style: kbody3Style.copyWith(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600),
+                        color: Colors.black, fontWeight: FontWeight.w600),
                   ),
                   IconButton(
                       onPressed: () {
@@ -100,10 +99,6 @@ class _StyleLayerSelectorBottomSheetState
                         FloatingActionButton(
                           onPressed: () => _landMeasurementMapController
                               .updateMapBaseLayerStyle(baseStyleId: layer.id),
-                          child: Image.asset(layer.assetsName,
-                              fit: BoxFit.cover,
-                              height: (MediaQuery.of(context).size.width) / 6,
-                              width: MediaQuery.of(context).size.width / 6),
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             side: const BorderSide(
@@ -113,6 +108,10 @@ class _StyleLayerSelectorBottomSheetState
                             borderRadius: BorderRadius.circular(100),
                           ),
                           elevation: 0,
+                          child: Image.asset(layer.assetsName,
+                              fit: BoxFit.cover,
+                              height: (MediaQuery.of(context).size.width) / 6,
+                              width: MediaQuery.of(context).size.width / 6),
                         ),
                         Text(
                           layer.name,
