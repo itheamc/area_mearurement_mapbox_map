@@ -1,4 +1,4 @@
-import 'package:area_mearurement_mapbox_map/src/helpers/styles.dart';
+import 'package:area_measurement_mapbox_map/src/helpers/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
