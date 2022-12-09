@@ -5,13 +5,13 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-import '../controller/mapbox_land_measurement_controller.dart';
+import '../controller/mapbox_area_measurement_controller.dart';
 import '../helpers/mapbox_map_helper.dart';
 import '../helpers/style_layer_selector_bottomsheet.dart';
 import '../helpers/styles.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 
-class LandMeasurementMapScreen extends StatefulWidget {
+class AreaMeasurementMapScreen extends StatefulWidget {
   /// Mapbox map access token
   final String accessToken;
 
@@ -35,7 +35,7 @@ class LandMeasurementMapScreen extends StatefulWidget {
   final VoidCallback? onMapIdle;
   final bool useDelayedDisposal;
 
-  const LandMeasurementMapScreen({
+  const AreaMeasurementMapScreen({
     Key? key,
     required this.accessToken,
     this.style,
@@ -49,14 +49,14 @@ class LandMeasurementMapScreen extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return LandMeasurementMapScreenState();
+    return AreaMeasurementMapScreenState();
   }
 }
 
-class LandMeasurementMapScreenState extends State<LandMeasurementMapScreen> {
-  /// MeasurementMapboxController
+class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
+  /// MapboxAreaMeasurementController
   final _measurementMapboxController =
-      Get.put(MapboxLandMeasurementController());
+      Get.put(MapboxAreaMeasurementController());
 
   @override
   void initState() {

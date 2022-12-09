@@ -2,7 +2,7 @@ import 'package:area_measurement_mapbox_map/src/helpers/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controller/mapbox_land_measurement_controller.dart';
+import '../controller/mapbox_area_measurement_controller.dart';
 
 class StyleLayerSelectorBottomSheet extends StatefulWidget {
   const StyleLayerSelectorBottomSheet({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class StyleLayerSelectorBottomSheet extends StatefulWidget {
 class _StyleLayerSelectorBottomSheetState
     extends State<StyleLayerSelectorBottomSheet> {
   final _landMeasurementMapController =
-      Get.find<MapboxLandMeasurementController>();
+      Get.find<MapboxAreaMeasurementController>();
 
   final _layers = <_MapStyle>[
     _MapStyle(

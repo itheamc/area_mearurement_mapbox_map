@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 import 'package:maps_toolkit/maps_toolkit.dart' as toolkit;
 
-class MapboxLandMeasurementController extends GetxController {
+class MapboxAreaMeasurementController extends GetxController {
   /// MapboxMapController
   MapboxMapController? _mapController;
 
