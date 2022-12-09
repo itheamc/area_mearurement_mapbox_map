@@ -36,6 +36,7 @@ class MapboxMapHelper extends StatefulWidget {
 
   final VoidCallback? onCameraIdle;
   final VoidCallback? onMapIdle;
+  final bool useDelayedDisposal;
 
   const MapboxMapHelper({
     Key? key,
@@ -49,6 +50,7 @@ class MapboxMapHelper extends StatefulWidget {
     this.onUserLocationUpdated,
     this.onCameraIdle,
     this.onMapIdle,
+    this.useDelayedDisposal = false,
   }) : super(key: key);
 
   @override
@@ -80,7 +82,7 @@ class _MapboxMapHelperState extends State<MapboxMapHelper> {
       onMapIdle: widget.onMapIdle,
       trackCameraPosition: true,
       compassEnabled: false,
-      useDelayedDisposal: true,
+      useDelayedDisposal: widget.useDelayedDisposal,
     );
   }
 }

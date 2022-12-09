@@ -33,6 +33,7 @@ class LandMeasurementMapScreen extends StatefulWidget {
 
   final VoidCallback? onCameraIdle;
   final VoidCallback? onMapIdle;
+  final bool useDelayedDisposal;
 
   const LandMeasurementMapScreen({
     Key? key,
@@ -43,6 +44,7 @@ class LandMeasurementMapScreen extends StatefulWidget {
     this.onMapLongClick,
     this.onCameraIdle,
     this.onMapIdle,
+    this.useDelayedDisposal = false,
   }) : super(key: key);
 
   @override
@@ -237,6 +239,7 @@ class LandMeasurementMapScreenState extends State<LandMeasurementMapScreen> {
           onMapLongClick: widget.onMapLongClick,
           onCameraIdle: widget.onCameraIdle,
           onMapIdle: widget.onMapIdle,
+          useDelayedDisposal: widget.useDelayedDisposal,
         ),
         Obx(
           () {
