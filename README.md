@@ -9,9 +9,9 @@ This is a flutter package based on mapbox_gl plugin to measure the area of the p
 ```
 # Overrides dependencies
 dependency_overrides:
-  area_mearurement_mapbox_map:
+  area_measurement_mapbox_map:
     git:
-      url: https://github.com/itheamc/area_mearurement_mapbox_map.git
+      url: https://github.com/itheamc/area_measurement_mapbox_map.git
       ref: master
 
   mapbox_gl_platform_interface:
