@@ -48,7 +48,7 @@ class AreaMeasurementMapScreen extends StatefulWidget {
     this.onCameraIdle,
     this.onMapIdle,
     this.useDelayedDisposal = false,
-    this.language = "en";
+    this.language = "en",
   }) : super(key: key);
 
   @override
