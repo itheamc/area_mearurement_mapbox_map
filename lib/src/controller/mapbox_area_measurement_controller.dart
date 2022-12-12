@@ -9,13 +9,6 @@ class MapboxAreaMeasurementController extends GetxController {
 
   MapboxMapController? get mapController => _mapController;
 
-  /// Language
-  final _language = "en".obs;
-
-  String get language => _language.value;
-
-  set language(String value) => _language.value = value;
-
   /// UserLocation
   UserLocation? userLocation;
 
@@ -58,36 +51,6 @@ class MapboxAreaMeasurementController extends GetxController {
         ),
       );
     }
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-    dropItems = language == "ne"
-        ? {
-            'वर्ग मिटर': 0.0,
-            'एकर': 0.0,
-            'बिघा': 0.0,
-            'कठ्ठा': 0.0,
-            'धुर': 0.0,
-            'रोपानी': 0.0,
-            'आना': 0.0,
-            'पैसा:': 0.0,
-            'दाम': 0.0,
-            'वर्ग फीट': 0.0
-          }
-        : {
-            'Sq. meter': 0.00,
-            'Acre': 0.00,
-            'Bigha': 0.00,
-            'kattha': 0.00,
-            'Dhur': 0.00,
-            'Ropani': 0.00,
-            'Aana': 0.00,
-            'Paisa:': 0.00,
-            'Dam': 0.00,
-            'Sq. feet': 0.00
-          };
   }
 
   /// ----------------------Drawing Related---------------------
@@ -174,20 +137,7 @@ class MapboxAreaMeasurementController extends GetxController {
                   localList.map((e) => toolkit.LatLng(e[1], e[0])).toList())
               as double;
 
-          dropItems = language == "ne"
-              ? {
-                  'वर्ग मिटर': tempArea,
-                  'एकर': tempArea / 4046.86,
-                  'बिघा': tempArea / 6772.631616,
-                  'कठ्ठा': tempArea / 338.6315808,
-                  'धुर': tempArea / 16.93157904,
-                  'रोपानी': tempArea / 508.737047,
-                  'आना': tempArea / 31.79606544,
-                  'पैसा:': tempArea / 7.94901636,
-                  'दाम': tempArea / 1.98725409,
-                  'वर्ग फीट': tempArea / 0.09290304
-                }
-              : {
+          dropItems = {
                   'Sq. meter': tempArea,
                   'Acre': tempArea / 4046.86,
                   'Bigha': tempArea / 6772.631616,
@@ -417,20 +367,7 @@ class MapboxAreaMeasurementController extends GetxController {
         debugPrint('layer does not exit ');
       }
       areaOfPolygon(0.0);
-      dropItems = language == "ne"
-          ? {
-              'वर्ग मिटर': 0.0,
-              'एकर': 0.0,
-              'बिघा': 0.0,
-              'कठ्ठा': 0.0,
-              'धुर': 0.0,
-              'रोपानी': 0.0,
-              'आना': 0.0,
-              'पैसा:': 0.0,
-              'दाम': 0.0,
-              'वर्ग फीट': 0.0
-            }
-          : {
+      dropItems = {
               'Sq. meter': 0.00,
               'Acre': 0.00,
               'Bigha': 0.00,

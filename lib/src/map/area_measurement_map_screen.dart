@@ -35,9 +35,6 @@ class AreaMeasurementMapScreen extends StatefulWidget {
   final VoidCallback? onMapIdle;
   final bool useDelayedDisposal;
 
-  /// Language 'en' or 'ne'
-  final String language;
-
   const AreaMeasurementMapScreen({
     Key? key,
     required this.accessToken,
@@ -48,7 +45,6 @@ class AreaMeasurementMapScreen extends StatefulWidget {
     this.onCameraIdle,
     this.onMapIdle,
     this.useDelayedDisposal = false,
-    this.language = "en",
   }) : super(key: key);
 
   @override
@@ -62,13 +58,6 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
   final _measurementMapboxController =
   Get.put(MapboxAreaMeasurementController());
 
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _measurementMapboxController.language = widget.language;
-    });
-  }
 
   @override
   void dispose() {
