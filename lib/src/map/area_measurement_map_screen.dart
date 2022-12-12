@@ -35,6 +35,9 @@ class AreaMeasurementMapScreen extends StatefulWidget {
   final VoidCallback? onMapIdle;
   final bool useDelayedDisposal;
 
+  /// Language 'en' or 'ne'
+  final String language;
+
   const AreaMeasurementMapScreen({
     Key? key,
     required this.accessToken,
@@ -45,6 +48,7 @@ class AreaMeasurementMapScreen extends StatefulWidget {
     this.onCameraIdle,
     this.onMapIdle,
     this.useDelayedDisposal = false,
+    this.language = "en";
   }) : super(key: key);
 
   @override
@@ -56,11 +60,14 @@ class AreaMeasurementMapScreen extends StatefulWidget {
 class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
   /// MapboxAreaMeasurementController
   final _measurementMapboxController =
-      Get.put(MapboxAreaMeasurementController());
+  Get.put(MapboxAreaMeasurementController());
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _measurementMapboxController.language = widget.language;
+    });
   }
 
   @override
@@ -76,7 +83,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
       ),
       child: Scaffold(
         floatingActionButtonLocation:
-            FloatingActionButtonLocation.miniCenterDocked,
+        FloatingActionButtonLocation.miniCenterDocked,
         floatingActionButton: Stack(
           fit: StackFit.expand,
           children: [
@@ -103,7 +110,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                     child: IconButton(
                       onPressed: () {
                         _measurementMapboxController.isDrawing.value =
-                            !_measurementMapboxController.isDrawing.value;
+                        !_measurementMapboxController.isDrawing.value;
                       },
                       icon: const FaIcon(FontAwesomeIcons.ruler),
                     ),
@@ -134,7 +141,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                     child: IconButton(
                       onPressed: () {
                         _measurementMapboxController.isDrawing.value =
-                            !_measurementMapboxController.isDrawing.value;
+                        !_measurementMapboxController.isDrawing.value;
                         _measurementMapboxController.listOfDrawLatLongs.clear();
                         _measurementMapboxController.removeDrawing();
                         _measurementMapboxController.drawActiveLine();
@@ -194,7 +201,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                 child: FittedBox(
                   child: IconButton(
                     onPressed:
-                        _measurementMapboxController.moveToCurrentLocation,
+                    _measurementMapboxController.moveToCurrentLocation,
                     icon: const Icon(
                       Icons.near_me_outlined,
                     ),
@@ -232,9 +239,9 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
           initialCameraPosition: widget.initialCameraPosition,
           onMapCreated: _measurementMapboxController.onMapCreated,
           onStyleLoadedCallback:
-              _measurementMapboxController.onStyleLoadedCallback,
+          _measurementMapboxController.onStyleLoadedCallback,
           onUserLocationUpdated:
-              _measurementMapboxController.onUserLocationUpdated,
+          _measurementMapboxController.onUserLocationUpdated,
           onMapClick: widget.onMapClick,
           onMapLongClick: widget.onMapLongClick,
           onCameraIdle: widget.onCameraIdle,
@@ -242,7 +249,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
           useDelayedDisposal: widget.useDelayedDisposal,
         ),
         Obx(
-          () {
+              () {
             return Visibility(
               visible: _measurementMapboxController.isDrawing.value,
               child: IgnorePointer(
@@ -311,7 +318,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                 IconButton(
                     onPressed: () async {
                       _measurementMapboxController.isDrawing.value =
-                          !_measurementMapboxController.isDrawing.value;
+                      !_measurementMapboxController.isDrawing.value;
                       _measurementMapboxController.listOfDrawLatLongs.clear();
                       await _measurementMapboxController.removeDrawing();
                       await _measurementMapboxController.drawActiveLine();
@@ -358,7 +365,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                         items: _measurementMapboxController.dropItemListMap,
 
                         onChanged:
-                            _measurementMapboxController.onDropDownValueChanged,
+                        _measurementMapboxController.onDropDownValueChanged,
                       ),
                     ],
                   ),
@@ -412,7 +419,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Visibility(
                 visible:
-                    _measurementMapboxController.isShowMixedConversion.value,
+                _measurementMapboxController.isShowMixedConversion.value,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 4.0),
                   child: Text(
