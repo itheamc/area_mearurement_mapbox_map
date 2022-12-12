@@ -7,6 +7,10 @@ This is a flutter package based on mapbox_gl plugin to measure the area of the p
 1. Added these codes to your pubspec.yaml
 
 ```
+# If you are not using getx then add getx in your dependencies
+dependencies
+  get: ^4.6.5
+
 # Overrides dependencies
 dependency_overrides:
   area_measurement_mapbox_map:
@@ -23,8 +27,7 @@ dependency_overrides:
     git:
       url: https://github.com/ithebest/maps.git
       ref: master
-  get: ^4.6.5
-  
+
 
 # Added assets folder
   assets:
@@ -45,7 +48,25 @@ dependency_overrides:
     - family: SoloSellIcons
       fonts:
         - asset: assets/arrow-svg-icons/SoloSellIcons.ttf
+        
 ```
 
 2. Download assets available in this package and store in your projects assets
+
+3. Import package
+```
+# Import area_measurement_mapbox_map package 
+import 'package:area_measurement_mapbox_map/area_measurement_mapbox_map.dart';
+
+# Use it
+AreaMeasurementMapScreen(
+      accessToken: "pk.eyJ1IjoibmlzaG9uLW5heGEiLCJhIjoiY2xhYnhwbzN0MDUxYTN1bWhvcWxocWlpaSJ9.0FarR4aPxb7F9BHP31msww",
+      initialCameraPosition: widget.initialCameraPosition ??
+          const CameraPosition(
+            target: LatLng(27.706414905613556, 85.42349018023116),
+            zoom: 10.0,
+          ),
+      useDelayedDisposal: true,
+    ),
+```
 
