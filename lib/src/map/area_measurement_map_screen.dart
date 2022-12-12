@@ -56,8 +56,7 @@ class AreaMeasurementMapScreen extends StatefulWidget {
 class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
   /// MapboxAreaMeasurementController
   final _measurementMapboxController =
-  Get.put(MapboxAreaMeasurementController());
-
+      Get.put(MapboxAreaMeasurementController());
 
   @override
   void dispose() {
@@ -72,7 +71,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
       ),
       child: Scaffold(
         floatingActionButtonLocation:
-        FloatingActionButtonLocation.miniCenterDocked,
+            FloatingActionButtonLocation.miniCenterDocked,
         floatingActionButton: Stack(
           fit: StackFit.expand,
           children: [
@@ -99,7 +98,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                     child: IconButton(
                       onPressed: () {
                         _measurementMapboxController.isDrawing.value =
-                        !_measurementMapboxController.isDrawing.value;
+                            !_measurementMapboxController.isDrawing.value;
                       },
                       icon: const FaIcon(FontAwesomeIcons.ruler),
                     ),
@@ -130,7 +129,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                     child: IconButton(
                       onPressed: () {
                         _measurementMapboxController.isDrawing.value =
-                        !_measurementMapboxController.isDrawing.value;
+                            !_measurementMapboxController.isDrawing.value;
                         _measurementMapboxController.listOfDrawLatLongs.clear();
                         _measurementMapboxController.removeDrawing();
                         _measurementMapboxController.drawActiveLine();
@@ -190,7 +189,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                 child: FittedBox(
                   child: IconButton(
                     onPressed:
-                    _measurementMapboxController.moveToCurrentLocation,
+                        _measurementMapboxController.moveToCurrentLocation,
                     icon: const Icon(
                       Icons.near_me_outlined,
                     ),
@@ -228,9 +227,9 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
           initialCameraPosition: widget.initialCameraPosition,
           onMapCreated: _measurementMapboxController.onMapCreated,
           onStyleLoadedCallback:
-          _measurementMapboxController.onStyleLoadedCallback,
+              _measurementMapboxController.onStyleLoadedCallback,
           onUserLocationUpdated:
-          _measurementMapboxController.onUserLocationUpdated,
+              _measurementMapboxController.onUserLocationUpdated,
           onMapClick: widget.onMapClick,
           onMapLongClick: widget.onMapLongClick,
           onCameraIdle: widget.onCameraIdle,
@@ -238,7 +237,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
           useDelayedDisposal: widget.useDelayedDisposal,
         ),
         Obx(
-              () {
+          () {
             return Visibility(
               visible: _measurementMapboxController.isDrawing.value,
               child: IgnorePointer(
@@ -307,7 +306,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                 IconButton(
                     onPressed: () async {
                       _measurementMapboxController.isDrawing.value =
-                      !_measurementMapboxController.isDrawing.value;
+                          !_measurementMapboxController.isDrawing.value;
                       _measurementMapboxController.listOfDrawLatLongs.clear();
                       await _measurementMapboxController.removeDrawing();
                       await _measurementMapboxController.drawActiveLine();
@@ -354,7 +353,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                         items: _measurementMapboxController.dropItemListMap,
 
                         onChanged:
-                        _measurementMapboxController.onDropDownValueChanged,
+                            _measurementMapboxController.onDropDownValueChanged,
                       ),
                     ],
                   ),
@@ -384,19 +383,24 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                     child: Row(
                       children: [
                         Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(50.0)),
-                            child: const Icon(
-                              Icons.add,
-                              color: Colors.grey,
-                            )),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(50.0)),
+                          child: const Icon(
+                            Icons.add,
+                            color: Colors.grey,
+                          ),
+                        ),
                         const SizedBox(
                           width: 8,
                         ),
-                        const Text(
-                          'Add point',
-                          style: TextStyle(color: Colors.black),
+                        const Flexible(
+                          child: Text(
+                            'Add point',
+                            style: TextStyle(color: Colors.black),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         )
                       ],
                     ),
@@ -408,7 +412,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Visibility(
                 visible:
-                _measurementMapboxController.isShowMixedConversion.value,
+                    _measurementMapboxController.isShowMixedConversion.value,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 4.0),
                   child: Text(
