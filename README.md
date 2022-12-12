@@ -53,7 +53,9 @@ dependency_overrides:
 
 2. Download assets available in this package and store in your projects assets
 
-3. Import package
+3. Replaced ```MaterialApp()``` widget with ```GetMaterialApp()```
+
+4. Import package
 ```
 # Import area_measurement_mapbox_map package 
 import 'package:area_measurement_mapbox_map/area_measurement_mapbox_map.dart';
