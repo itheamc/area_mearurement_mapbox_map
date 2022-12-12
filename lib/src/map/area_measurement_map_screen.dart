@@ -394,13 +394,11 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                         const SizedBox(
                           width: 8,
                         ),
-                        const Flexible(
-                          child: Text(
-                            'Add point',
-                            style: TextStyle(color: Colors.black),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
+                        const Text(
+                          'Add point',
+                          style: TextStyle(color: Colors.black),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         )
                       ],
                     ),
