@@ -53,7 +53,7 @@ dependency_overrides:
 
 2. Download assets available in this package and store in your projects assets
 
-3. Replaced ```MaterialApp()``` widget with ```GetMaterialApp()```
+3. Replace ```MaterialApp()``` widget with ```GetMaterialApp()```
 
 4. Import package
 ```
