@@ -351,7 +351,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                         value: _measurementMapboxController.dropDownValue.value,
 
                         // Down Arrow Icon
-                        icon: const Icon(FontAwesomeIcons.chevronDown),
+                        icon: const Icon(FontAwesomeIcons.chevronDown, size: 16.0,),
 
                         // Array list of items
                         items: _measurementMapboxController.dropItemListMap,
