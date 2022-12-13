@@ -51,9 +51,9 @@ dependency_overrides:
         
 ```
 
-2. Download assets available in this package and store in your projects assets
+2. Download assets available in this package's assets folder and store in your projects assets
 
-3. Replace ```MaterialApp()``` widget with ```GetMaterialApp()```
+3. Replace ```MaterialApp()``` widget with ```GetMaterialApp()``` if you are using ```MaterialApp()```
 
 4. Import package
 ```
@@ -61,14 +61,27 @@ dependency_overrides:
 import 'package:area_measurement_mapbox_map/area_measurement_mapbox_map.dart';
 
 # Use it
-AreaMeasurementMapScreen(
-      accessToken: "pk.eyJ1IjoibmlzaG9uLW5heGEiLCJhIjoiY2xhYnhwbzN0MD...",
-      initialCameraPosition: widget.initialCameraPosition ??
-          const CameraPosition(
-            target: LatLng(27.706414905613556, 85.42349018023116),
-            zoom: 10.0,
-          ),
-      useDelayedDisposal: true,
-    ),
+  /// AreaMeasurementController Instance
+  final _measurementController = AreaMeasurementController();
+
+  @override
+  Widget build(BuildContext context) {
+    return AreaMeasurementScaffold(
+      measurementController: _measurementController,
+      mapboxMap:  MapboxMap(
+        accessToken: "your_access_token",
+        initialCameraPosition: const CameraPosition(
+          target: LatLng(27.706414905613556, 85.42349018023116),
+          zoom: 10.0,
+        ),
+        onMapCreated: _measurementController.onMapCreated,
+        onStyleLoadedCallback:
+        _measurementController.onStyleLoadedCallback,
+        onUserLocationUpdated:
+        _measurementController.onUserLocationUpdated,
+        useDelayedDisposal: true, // If you are using flutter version >= 3.0.0
+      ),
+    );
+  }
 ```
 
