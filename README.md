@@ -62,7 +62,7 @@ import 'package:area_measurement_mapbox_map/area_measurement_mapbox_map.dart';
 
 # Use it
 AreaMeasurementMapScreen(
-      accessToken: "pk.eyJ1IjoibmlzaG9uLW5heGEiLCJhIjoiY2xhYnhwbzN0MDUxYTN1bWhvcWxocWlpaSJ9.0FarR4aPxb7F9BHP31msww",
+      accessToken: "pk.eyJ1IjoibmlzaG9uLW5heGEiLCJhIjoiY2xhYnhwbzN0MD...",
       initialCameraPosition: widget.initialCameraPosition ??
           const CameraPosition(
             target: LatLng(27.706414905613556, 85.42349018023116),
