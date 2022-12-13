@@ -138,7 +138,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                         _measurementMapboxController.removeDrawing();
                         _measurementMapboxController.drawActiveLine();
                       },
-                      icon: const Icon(Icons.close),
+                      icon: const Icon(FontAwesomeIcons.xmark),
                     ),
                   ),
                 ),
@@ -316,7 +316,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                       await _measurementMapboxController.drawActiveLine();
                     },
                     icon: const Icon(
-                      Icons.close,
+                      FontAwesomeIcons.xmark,
                       color: Colors.black,
                     )),
               ],
@@ -351,7 +351,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                         value: _measurementMapboxController.dropDownValue.value,
 
                         // Down Arrow Icon
-                        icon: const Icon(Icons.keyboard_arrow_down),
+                        icon: const Icon(FontAwesomeIcons.chevronDown),
 
                         // Array list of items
                         items: _measurementMapboxController.dropItemListMap,
@@ -391,7 +391,7 @@ class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
                               border: Border.all(color: Colors.grey),
                               borderRadius: BorderRadius.circular(50.0)),
                           child: const Icon(
-                            Icons.add,
+                            FontAwesomeIcons.plus,
                             color: Colors.grey,
                           ),
                         ),
