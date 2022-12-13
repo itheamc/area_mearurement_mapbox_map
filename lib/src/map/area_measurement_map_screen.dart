@@ -55,11 +55,15 @@ class AreaMeasurementMapScreen extends StatefulWidget {
 
 class AreaMeasurementMapScreenState extends State<AreaMeasurementMapScreen> {
   /// MapboxAreaMeasurementController
-  final _measurementMapboxController =
-      Get.put(MapboxAreaMeasurementController());
+  final _measurementMapboxController = Get.put(
+      MapboxAreaMeasurementController(),
+      tag: "@AreaMeasurementController");
 
   @override
   void dispose() {
+    if (Get.isRegistered(tag: "@AreaMeasurementController")) {
+      Get.delete(tag: "@AreaMeasurementController");
+    }
     super.dispose();
   }
 
