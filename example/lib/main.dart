@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 /// Measurement Screen
 class MeasurementScreen extends StatefulWidget {
   const MeasurementScreen({Key? key}) : super(key: key);
@@ -33,7 +32,6 @@ class MeasurementScreen extends StatefulWidget {
 }
 
 class _MeasurementScreenState extends State<MeasurementScreen> {
-
   /// AreaMeasurementController Instance
   final _measurementController = AreaMeasurementController();
 
@@ -47,13 +45,10 @@ class _MeasurementScreenState extends State<MeasurementScreen> {
           zoom: 10.0,
         ),
         onMapCreated: _measurementController.onMapCreated,
-        onStyleLoadedCallback:
-        _measurementController.onStyleLoadedCallback,
-        onUserLocationUpdated:
-        _measurementController.onUserLocationUpdated,
+        onStyleLoadedCallback: _measurementController.onStyleLoadedCallback,
+        onUserLocationUpdated: _measurementController.onUserLocationUpdated,
         useDelayedDisposal: true,
       ),
     );
   }
 }
-
