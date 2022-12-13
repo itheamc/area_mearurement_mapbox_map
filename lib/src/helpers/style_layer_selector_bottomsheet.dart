@@ -1,11 +1,15 @@
+import 'package:area_measurement_mapbox_map/src/controller/area_measurement_controller.dart';
 import 'package:area_measurement_mapbox_map/src/helpers/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controller/mapbox_area_measurement_controller.dart';
-
 class StyleLayerSelectorBottomSheet extends StatefulWidget {
-  const StyleLayerSelectorBottomSheet({Key? key}) : super(key: key);
+  final AreaMeasurementController measurementController;
+
+  const StyleLayerSelectorBottomSheet({
+    Key? key,
+    required this.measurementController,
+  }) : super(key: key);
 
   @override
   State<StyleLayerSelectorBottomSheet> createState() =>
@@ -14,9 +18,6 @@ class StyleLayerSelectorBottomSheet extends StatefulWidget {
 
 class _StyleLayerSelectorBottomSheetState
     extends State<StyleLayerSelectorBottomSheet> {
-  final _landMeasurementMapController =
-      Get.find<MapboxAreaMeasurementController>();
-
   final _layers = <_MapStyle>[
     _MapStyle(
       id: 0,
@@ -98,13 +99,13 @@ class _StyleLayerSelectorBottomSheetState
                       (layer) => Column(
                         children: [
                           FloatingActionButton(
-                            onPressed: () => _landMeasurementMapController
+                            onPressed: () => widget.measurementController
                                 .updateMapBaseLayerStyle(baseStyleId: layer.id),
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
                                 width: 1,
-                                color: _landMeasurementMapController
+                                color: widget.measurementController
                                             .selectedStyleId ==
                                         layer.id
                                     ? Colors.red
@@ -120,8 +121,6 @@ class _StyleLayerSelectorBottomSheetState
                           ),
                           Text(
                             layer.name,
-                            // style: CustomAppStyle.button14pxSemiBold(context)
-                            //     .copyWith(color: Colors.black87),
                           )
                         ],
                       ),
