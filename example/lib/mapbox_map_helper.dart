@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 
 class MapboxMapHelper extends StatefulWidget {
-  /// Mapbox map access token
-  final String accessToken;
-
   /// Mapbox map style uri
   final String? styleUri;
 
@@ -40,7 +37,6 @@ class MapboxMapHelper extends StatefulWidget {
 
   const MapboxMapHelper({
     Key? key,
-    required this.accessToken,
     this.styleUri,
     this.initialCameraPosition,
     this.onMapCreated,
@@ -61,7 +57,7 @@ class _MapboxMapHelperState extends State<MapboxMapHelper> {
   @override
   Widget build(BuildContext context) {
     return MapboxMap(
-      accessToken: widget.accessToken,
+      accessToken: "your_access_token",
       styleString: widget.styleUri ?? MapboxStyles.LIGHT,
       initialCameraPosition: widget.initialCameraPosition ??
           const CameraPosition(
