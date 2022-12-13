@@ -37,129 +37,111 @@ class _AreaMeasurementScaffoldState extends State<AreaMeasurementScaffold> {
           fit: StackFit.expand,
           children: [
             Obx(() {
-              return Visibility(
-                visible: !widget.measurementController.isDrawing.value,
-                child: Positioned(
-                  right: 17,
-                  top: 64,
-                  child: Container(
-                    height: 48.0,
-                    width: 48.0,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 2,
-                          color: Colors.black38,
-                          offset: Offset(0.0, 1.0),
-                        ),
-                      ],
-                      shape: BoxShape.circle,
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        widget.measurementController.isDrawing.value =
-                            !widget.measurementController.isDrawing.value;
-                      },
-                      icon: const FaIcon(FontAwesomeIcons.ruler),
-                    ),
+              return AnimatedPositioned(
+                duration: const Duration(milliseconds: 375),
+                curve: Curves.ease,
+                right:
+                    !widget.measurementController.isDrawing.value ? 17.0 : null,
+                top: 40,
+                left:
+                    widget.measurementController.isDrawing.value ? 17.0 : null,
+                child: Container(
+                  height: 48.0,
+                  width: 48.0,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 2,
+                        color: Colors.black38,
+                        offset: Offset(0.0, 1.0),
+                      ),
+                    ],
+                    shape: BoxShape.circle,
                   ),
-                ),
-              );
-            }),
-            Obx(() {
-              return Visibility(
-                visible: widget.measurementController.isDrawing.value,
-                child: Positioned(
-                  left: 17,
-                  top: 64,
-                  child: Container(
-                    height: 48.0,
-                    width: 48.0,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 2,
-                          color: Colors.black38,
-                          offset: Offset(0.0, 1.0),
-                        ),
-                      ],
-                      shape: BoxShape.circle,
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        widget.measurementController.isDrawing.value =
-                            !widget.measurementController.isDrawing.value;
+                  child: IconButton(
+                    onPressed: () {
+                      widget.measurementController.isDrawing.value =
+                          !widget.measurementController.isDrawing.value;
+
+                      if (widget.measurementController.isDrawing.value) {
                         widget.measurementController.listOfDrawLatLongs.clear();
                         widget.measurementController.removeDrawing();
                         widget.measurementController.drawActiveLine();
-                      },
-                      icon: const Icon(Icons.close),
-                    ),
+                      }
+                    },
+                    icon: FaIcon(widget.measurementController.isDrawing.value
+                        ? FontAwesomeIcons.xmark
+                        : FontAwesomeIcons.ruler),
                   ),
                 ),
               );
             }),
             Positioned(
               right: 17,
-              bottom: 76,
-              child: Container(
-                height: 48.0,
-                width: 48.0,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 2,
-                      color: Colors.black38,
-                      offset: Offset(0.0, 1.0),
-                    ),
-                  ],
-                  shape: BoxShape.circle,
-                ),
-                child: FittedBox(
-                  child: IconButton(
-                    onPressed: () {
-                      Get.bottomSheet(
-                        StyleLayerSelectorBottomSheet(
-                          measurementController: widget.measurementController,
-                        ),
-                      );
-                    },
-                    icon: const Icon(
-                      Icons.layers_outlined,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              right: 17,
               bottom: 20,
-              child: Container(
-                height: 48.0,
-                width: 48.0,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 2,
-                      color: Colors.black38,
-                      offset: Offset(0.0, 1.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 48.0,
+                    width: 48.0,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 2,
+                          color: Colors.black38,
+                          offset: Offset(0.0, 1.0),
+                        ),
+                      ],
+                      shape: BoxShape.circle,
                     ),
-                  ],
-                  shape: BoxShape.circle,
-                ),
-                child: FittedBox(
-                  child: IconButton(
-                    onPressed:
-                        widget.measurementController.moveToCurrentLocation,
-                    icon: const Icon(
-                      Icons.near_me_outlined,
+                    child: FittedBox(
+                      child: IconButton(
+                        onPressed: () {
+                          Get.bottomSheet(
+                            StyleLayerSelectorBottomSheet(
+                              measurementController:
+                                  widget.measurementController,
+                            ),
+                          );
+                        },
+                        icon: const Icon(
+                          Icons.layers_outlined,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  const SizedBox(
+                    height: 8.0,
+                  ),
+                  Container(
+                    height: 48.0,
+                    width: 48.0,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 2,
+                          color: Colors.black38,
+                          offset: Offset(0.0, 1.0),
+                        ),
+                      ],
+                      shape: BoxShape.circle,
+                    ),
+                    child: FittedBox(
+                      child: IconButton(
+                        onPressed:
+                            widget.measurementController.moveToCurrentLocation,
+                        icon: const Icon(
+                          Icons.near_me_outlined,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             AnimatedAlign(
