@@ -148,20 +148,21 @@ class _AreaMeasurementState extends State<AreaMeasurement> {
                       ],
                     ),
                   ),
-                  AnimatedAlign(
-                    duration: const Duration(milliseconds: 350),
-                    alignment: Alignment.bottomCenter,
-                    child: Obx(() {
-                      return Visibility(
-                        visible: widget.measurementController.isDrawing.value,
-                        child: FractionallySizedBox(
-                          heightFactor: 0.25,
-                          child: MeasurementUiBottomSheet(
-                            measurementController: widget.measurementController,
+                  Obx(() {
+                      return AnimatedAlign(
+                        duration: const Duration(milliseconds: 350),
+                        alignment: Alignment.bottomCenter,
+                        child: Visibility(
+                          visible: widget.measurementController.isDrawing.value,
+                          child: FractionallySizedBox(
+                            heightFactor: 0.25,
+                            child: MeasurementUiBottomSheet(
+                              measurementController: widget.measurementController,
+                            ),
                           ),
                         ),
                       );
-                    }),
+                    }
                   )
                 ],
               )

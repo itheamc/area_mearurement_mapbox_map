@@ -39,16 +39,31 @@ class _MeasurementScreenState extends State<MeasurementScreen> {
   Widget build(BuildContext context) {
     return AreaMeasurement(
       measurementController: _measurementController,
-      showDefaultControllerButtons: false,
-      mapboxMap: MapboxMapHelper(
-        initialCameraPosition: const CameraPosition(
-          target: LatLng(27.706414905613556, 85.42349018023116),
-          zoom: 10.0,
-        ),
-        onMapCreated: _measurementController.onMapCreated,
-        onStyleLoadedCallback: _measurementController.onStyleLoadedCallback,
-        onUserLocationUpdated: _measurementController.onUserLocationUpdated,
-        useDelayedDisposal: true,
+      showDefaultControllerButtons: true,
+      mapboxMap: Stack(
+        children: [
+          MapboxMapHelper(
+            initialCameraPosition: const CameraPosition(
+              target: LatLng(27.706414905613556, 85.42349018023116),
+              zoom: 10.0,
+            ),
+            onMapCreated: _measurementController.onMapCreated,
+            onStyleLoadedCallback: _measurementController.onStyleLoadedCallback,
+            onUserLocationUpdated: _measurementController.onUserLocationUpdated,
+            useDelayedDisposal: true,
+          ),
+          Positioned(
+            top: 16.0,
+            right: 16.0,
+            child: IconButton(onPressed: () {
+             if (_measurementController.isDrawing.value) {
+               _measurementController.hideMeasurementUi();
+             } else {
+               _measurementController.showMeasurementUi();
+             }
+            }, icon: Icon(Icons.add)),
+          )
+        ],
       ),
     );
   }
