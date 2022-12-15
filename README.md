@@ -66,7 +66,7 @@ import 'package:area_measurement_mapbox_map/area_measurement_mapbox_map.dart';
 
   @override
   Widget build(BuildContext context) {
-    return AreaMeasurementScaffold(
+    return AreaMeasurement(
       measurementController: _measurementController,
       mapboxMap:  MapboxMap(
         accessToken: "your_access_token",
@@ -79,6 +79,7 @@ import 'package:area_measurement_mapbox_map/area_measurement_mapbox_map.dart';
         _measurementController.onStyleLoadedCallback,
         onUserLocationUpdated:
         _measurementController.onUserLocationUpdated,
+        trackCameraPosition: true,
         useDelayedDisposal: true, // If you are using flutter version >= 3.0.0
       ),
     );
