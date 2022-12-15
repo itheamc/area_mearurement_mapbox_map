@@ -134,8 +134,8 @@ class AreaMeasurementController extends GetxController {
 
         if (localList.isNotEmpty) {
           double tempArea = toolkit.SphericalUtil.computeArea(
-              localList.map((e) => toolkit.LatLng(e[1], e[0])).toList())
-          as double;
+                  localList.map((e) => toolkit.LatLng(e[1], e[0])).toList())
+              as double;
 
           dropItems = {
             'Sq. meter': tempArea,
@@ -269,10 +269,10 @@ class AreaMeasurementController extends GetxController {
       "type": "FeatureCollection",
       "features": localList
           .map((e) => {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {"coordinates": e, "type": "Point"}
-      })
+                "type": "Feature",
+                "properties": {},
+                "geometry": {"coordinates": e, "type": "Point"}
+              })
           .toList()
     };
     await _mapController?.addSource(
@@ -282,9 +282,9 @@ class AreaMeasurementController extends GetxController {
             cluster: false,
             clusterMaxZoom: 14, // Max zoom to cluster points on
             clusterRadius:
-            50 // Radius of each cluster when clustering points (defaults to 50)
+                50 // Radius of each cluster when clustering points (defaults to 50)
 
-        ));
+            ));
 
     _mapController?.addLayer(
       "draw_point_source",
@@ -410,11 +410,6 @@ class AreaMeasurementController extends GetxController {
     }
   }
 
-  void updateMapBaseLayerStyle({int baseStyleId = 0}) {
-    _selectedStyleId.value = baseStyleId;
-    _mapController?.setStyle(getMabBoxStyles(stylesId: baseStyleId));
-  }
-
   String getMabBoxStyles({int stylesId = 0}) {
     String style = MapboxStyles.LIGHT;
     switch (stylesId) {
@@ -440,5 +435,38 @@ class AreaMeasurementController extends GetxController {
   void onInit() {
     super.onInit();
     populateDropdownList();
+  }
+
+  /// Method to show the measurement ui
+  void showMeasurementUi() {
+    isDrawing.value = true;
+  }
+
+  /// Method to hide the measurement ui
+  void hideMeasurementUi() {
+    isDrawing.value = false;
+    listOfDrawLatLongs.clear();
+    removeDrawing();
+    drawActiveLine();
+  }
+
+  /// Method to update map style
+  void updateMapStyle({int styleId = 0}) {
+    _selectedStyleId.value = styleId;
+
+    // setStyle() -> This method is not available in official mapbox_gl plugin
+    // It has been added in https://github.com/ithebest/maps (fork of mapbox_gl)
+    // In order to make it work you must override mapbox_gl package with:
+    // dependency_overrides:
+    //   mapbox_gl_platform_interface:
+    //     git:
+    //       url: https://github.com/ithebest/maps.git
+    //       ref: master
+    //       path: mapbox_gl_platform_interface/
+    //   mapbox_gl:
+    //     git:
+    //       url: https://github.com/ithebest/maps.git
+    //       ref: master
+    _mapController?.setStyle(getMabBoxStyles(stylesId: styleId));
   }
 }

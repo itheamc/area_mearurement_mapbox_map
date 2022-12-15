@@ -37,8 +37,9 @@ class _MeasurementScreenState extends State<MeasurementScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return AreaMeasurementScaffold(
+    return AreaMeasurement(
       measurementController: _measurementController,
+      showDefaultControllerButtons: false,
       mapboxMap: MapboxMapHelper(
         initialCameraPosition: const CameraPosition(
           target: LatLng(27.706414905613556, 85.42349018023116),

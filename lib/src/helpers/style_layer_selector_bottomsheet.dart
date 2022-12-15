@@ -100,7 +100,7 @@ class _StyleLayerSelectorBottomSheetState
                         children: [
                           FloatingActionButton(
                             onPressed: () => widget.measurementController
-                                .updateMapBaseLayerStyle(baseStyleId: layer.id),
+                                .updateMapStyle(styleId: layer.id),
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
