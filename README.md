@@ -4,7 +4,7 @@ This is a flutter package based on mapbox_gl plugin to measure the area of the p
 
 ## How to use it?
 
-1. Added these codes to your pubspec.yaml
+1. Add these codes to your pubspec.yaml
 
 ```
 # If you are not using getx then add getx in your dependencies
