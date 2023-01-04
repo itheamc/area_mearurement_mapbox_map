@@ -2,7 +2,7 @@ import 'package:example/mapbox_map_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:area_measurement_mapbox_map/area_measurement_mapbox_map.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
+import 'package:mapbox_gl_modified/mapbox_gl_modified.dart';
 
 void main() {
   runApp(const MyApp());

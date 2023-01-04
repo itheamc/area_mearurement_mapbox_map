@@ -13,7 +13,7 @@ dependencies:
   get: ^4.6.5
   maps_toolkit: ^2.0.1
   font_awesome_flutter: ^10.3.0
-  mapbox_gl: ^0.16.0
+  mapbox_gl_modified: ^0.16.0
 
 dev_dependencies:
   flutter_test:

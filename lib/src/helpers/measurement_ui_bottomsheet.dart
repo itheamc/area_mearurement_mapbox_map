@@ -3,7 +3,7 @@ import 'package:area_measurement_mapbox_map/src/helpers/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
+import 'package:mapbox_gl_modified/mapbox_gl_modified.dart';
 
 class MeasurementUiBottomSheet extends StatefulWidget {
   final AreaMeasurementController measurementController;

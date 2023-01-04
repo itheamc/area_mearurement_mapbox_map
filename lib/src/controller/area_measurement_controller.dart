@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
+import 'package:mapbox_gl_modified/mapbox_gl_modified.dart';
 import 'package:maps_toolkit/maps_toolkit.dart' as toolkit;
 
 class AreaMeasurementController extends GetxController {
